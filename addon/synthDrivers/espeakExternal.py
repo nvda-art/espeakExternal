@@ -456,7 +456,7 @@ class SynthDriver(SynthDriver):
 		if not curVoice:
 			return ""
 		# #5783: For backwards compatibility, voice identifies should always be lowercase
-		return _espeak.decodeEspeakString(curVoice.identifier).split("+")[0].lower()
+		return os.path.basename(_espeak.decodeEspeakString(curVoice.identifier)).split("+")[0].lower()
 
 	def _set_voice(self, identifier):
 		if not identifier:
